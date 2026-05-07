@@ -22,6 +22,11 @@ class Chasier {
             totalPrice: (total * price)
         })
     }
+
+    getItems() {
+        
+    }
+
 }
 
 export { Chasier };

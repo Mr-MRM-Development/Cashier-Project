@@ -29,7 +29,7 @@ async function render() {
                         <h5 class="card-title">${item.name}</h5>
                         <p class="card-text">${item.desc}</p>
                         <p class="card-text">${item.price}</p>
-                        <input id="totalInput${ index }" placeholder="Total Barang" type="number">
+                        <input id="totalInput${ index }" placeholder="Total Barang" type="number" min="1" value="1">
                         <a href="#" class="btn btn-primary">Masukan Keranjang</a>
                     </div>
                 </div>

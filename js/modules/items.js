@@ -38,23 +38,25 @@ const items = [
     {
         name: "Es Cokelat",
         price: 8000,
-        desc: "Es Cokelat Segar Manis",
+        desc: "Es Cokelat Manis",
         image: "assets/images/coklat.jpg"
     },
     {
         name: "Es Doger",
         price: 8000,
-        desc: "Es Doger Manis Segar ",
+        desc: "Es Doger Manis & Segar",
         image: "assets/images/esdoger1.jpg"
     },
     {
-        name: "Butterschoth",
+        name: "Butterschoth Coffee",
         price: 12000,
+        desc: "Butterschoth Dengan Rasa Pumpkin Spice",
         image: "assets/images/butterschoth.jpg"
     },
     {
         name: "NVIDIA RTX 5060",
         price: 15000000,
+        desc: "Gk Tau Siapa Yg Naruh Ini 🗿🗿,",
         image: "assets/images/rtx5060.jpg"
     }
 ]
