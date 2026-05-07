@@ -1,7 +1,7 @@
 :root{
     --primary-color: #4CAF50;
     --secondary-color: #f44336;
-    --background-color: #f0f0f0;
+    --background-color: #DAD8C9;
     --text-color: #333;
     --button-primary: #4CAF50;
     --button-secondary: #f44336;
@@ -16,3 +16,4 @@ body{
     background-color: var(--background-color);
     color: var(--text-color);
 }
+
