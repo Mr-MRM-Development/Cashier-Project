@@ -29,7 +29,11 @@ async function render() {
                         <h5 class="card-title">${item.name}</h5>
                         <p class="card-text">${item.desc}</p>
                         <p class="card-text">${item.price}</p>
-                        <input id="totalInput${ index }" placeholder="Total Barang" type="number" min="1" value="1">
+                        <div class="input-group" style="max-width: 200px;">
+                                <button class="btn btn-outline-secondary" type="button" id="btnMinus" disabled>-</button>
+                                <input id="totalInput${ index }" placeholder="Total Barang" type="number" min="1" value="1">
+                                <button class="btn btn-outline-secondary" type="button" id="btnPlus">+</button>
+                        </div>
                         <a href="#" class="btn btn-primary">Masukan Keranjang</a>
                     </div>
                 </div>

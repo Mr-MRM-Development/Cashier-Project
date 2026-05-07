@@ -50,7 +50,7 @@ const items = [
     {
         name: "Butterschoth Coffee",
         price: 12000,
-        desc: "Butterschoth Dengan Rasa Pumpkin Spice",
+        desc: " rasa manis creamy dengan sentuhan karamel buttery yang lembut dan hangat",
         image: "assets/images/butterschoth.jpg"
     },
     {
