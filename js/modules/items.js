@@ -56,7 +56,7 @@ const items = [
     {
         name: "Hmmm",
         price: 5000,
-        desc: "#",
+        desc: "",
         image: "assets/images/soft.jpg"
     }
 ]
