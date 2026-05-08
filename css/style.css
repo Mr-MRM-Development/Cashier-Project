@@ -5,15 +5,65 @@
     --text-color: #333;
     --button-primary: #4CAF50;
     --button-secondary: #f44336;
+
+    --bg-dark-1: #050525;
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
+    user-select: none;
 }
 body{
-    background-color: var(--background-color);
+    /* background-color: var(--background-color); */
+    background-image: url("../assets/images/wallpaper.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--text-color);
+    padding-bottom: 50px;
+}
+.input-group{
+    display: flex;
 }
 
+#card{
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+    background: linear-gradient(45deg, #45458580, #adadff80, #45458580);
+    backdrop-filter: blur(8px);
+}
+
+#card * {
+    color: #fff;
+}
+
+#card input {
+    color: #000;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: rotateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: rotateY(0);
+    }
+}
+
+footer {
+    background: linear-gradient(#45458580, #adadff80, #45458580);
+    backdrop-filter: blur(8px);
+    border: solid 1px #adadff;
+    border-bottom: none;
+    padding: 12px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    position: fixed;
+    bottom: 0;
+    left: 12px;
+    right: 12px;
+}

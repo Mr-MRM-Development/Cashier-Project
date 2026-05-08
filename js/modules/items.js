@@ -54,10 +54,10 @@ const items = [
         image: "assets/images/butterschoth.jpg"
     },
     {
-        name: "NVIDIA RTX 5060",
-        price: 15000000,
-        desc: "Gk Tau Siapa Yg Naruh Ini 🗿🗿,",
-        image: "assets/images/rtx5060.jpg"
+        name: "Hmmm",
+        price: 5000,
+        desc: "#",
+        image: "assets/images/soft.jpg"
     }
 ]
 
