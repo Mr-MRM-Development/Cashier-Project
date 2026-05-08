@@ -52,13 +52,13 @@ const items = [
         price: 12000,
         desc: " rasa manis creamy dengan sentuhan karamel buttery yang lembut dan hangat",
         image: "assets/images/butterschoth.jpg"
-    },
-    {
-        name: "Hmmm",
-        price: 5000,
-        desc: "",
-        image: "assets/images/soft.jpg"
     }
+    // {
+    //     name: "Hmmm",
+    //     price: 5000,
+    //     desc: "",
+    //     image: "assets/images/soft.jpg"
+    // }
 ]
 
 export { items }
