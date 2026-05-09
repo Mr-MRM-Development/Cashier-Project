@@ -17,12 +17,11 @@
 }
 body{
     /* background-color: var(--background-color); */
-    background-image: url("../assets/images/wallpaper.png");
+    background-image: url("../assets/images/wallpaper2.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: var(--text-color);
-    padding-bottom: 50px;
 }
 .input-group{
     display: flex;
@@ -31,7 +30,8 @@ body{
 .card{
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
-    background: linear-gradient(45deg, #45458580, #adadff80, #45458580);
+    /* background: linear-gradient(45deg, #45458580, #adadff80, #45458580); */
+    background: #3b2a1f;
     backdrop-filter: blur(8px);
     border-radius: 25px;
     overflow: hidden;
@@ -56,7 +56,7 @@ body{
     }
 }
 
-footer {
+/* footer {
     background: linear-gradient(#45458580, #adadff80, #45458580);
     backdrop-filter: blur(8px);
     border: solid 1px #adadff;
@@ -68,4 +68,195 @@ footer {
     bottom: 0;
     left: 12px;
     right: 12px;
+} */
+
+footer {
+  position: relative;
+  width: 100%;
+  color: dark;
+  text-align: center;
+  padding-top: 80px;
+  overflow: hidden;
 }
+
+.footer-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  z-index: 0;
+}
+
+.footer-background svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+footer section {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.legal {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+
+/* .cart-card{
+    width: 350px;
+    min-height: 200px;
+
+    background: rgba(255,255,255,0.95);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.3),
+    0 0 15px rgba(0,123,255,0.4);
+
+    animation: floatingCard 3s ease-in-out infinite;
+
+    z-index: 999;
+}
+
+
+.close-popup{
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    color: #444;
+}
+
+.close-popup:hover{
+    color: red;
+}
+
+
+@keyframes floatingCard{
+    0%{
+        transform: translate(-50%, -50%) translateY(0px);
+    }
+
+    50%{
+        transform: translate(-50%, -50%) translateY(-10px);
+    }
+
+    100%{
+        transform: translate(-50%, -50%) translateY(0px);
+    }
+} */
+ /* Tombol */
+.open-btn{
+    padding: 12px 20px;
+    border: solid 1px #adadff;
+    box-shadow: 1px 6px 3px 1px #05050580;
+    border-radius: 50%;
+    background: #0d6efd;
+    color: white;
+    width: 50px;
+    font-size: 20px;
+    height: 50px;
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Background Popup */
+.popup-bg{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0,0,0,0.4);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+}
+
+/* Card Popup */
+.cart-card{
+    width: 350px;
+    min-height: 200px;
+
+    background: rgba(255,255,255,0.95);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    position: relative;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.3),
+    0 0 15px rgba(0,123,255,0.4);
+
+    animation: popupAnim 0.3s ease;
+}
+
+/* Tombol Close */
+.close-popup{
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+/* Animasi */
+@keyframes popupAnim{
+    from{
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.cart-popup.hidden {transform:scale(0);}
