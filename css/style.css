@@ -8,6 +8,7 @@
 
     --bg-dark-1: #050525;
 }
+
 *{
     margin: 0;
     padding: 0;
@@ -15,6 +16,7 @@
     /* font-family: Arial, sans-serif; */
     user-select: none;
 }
+
 body{
     /* background-color: var(--background-color); */
     background-image: url("../assets/images/wallpaper2.png");
@@ -27,14 +29,30 @@ body{
     display: flex;
 }
 
+.input-group{
+    display: flex;
+}
+
+.input-group{
+    display: flex;
+}
+
 .card{
     opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
+    animation: fadeIn 1s ease forwards;
     /* background: linear-gradient(45deg, #45458580, #adadff80, #45458580); */
     background: #3b2a1f;
     backdrop-filter: blur(8px);
     border-radius: 25px;
     overflow: hidden;
+
+    /* Animasi hover */
+    transition: transform 2s ease, box-shadow 2s ease;
+}
+
+.card:hover{
+    transform: translateY(-15px) !important;
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.35);
 }
 
 .card * {
@@ -48,14 +66,67 @@ body{
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: rotateY(20px);
+        transform: rotateY(20deg);
     }
     to {
         opacity: 1;
-        transform: rotateY(0);
+        transform: rotateY(0deg);
     }
 }
 
+/* Style utama */
+.typing-title {
+  font-weight: 600;
+  font-family: 'Cursive', 'Brush Script MT';
+
+  width: fit-content;
+  margin: 0 auto;
+
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid white;
+
+  /* total durasi:
+     masuk 2s
+     diam 3s
+     keluar 2s
+     total 7s
+  */
+  animation:
+    typingCycle 7s steps(8) infinite,
+    blink 0.7s infinite;
+}
+
+/* Animasi ketik + hapus */
+@keyframes typingCycle {
+
+  /* MULAI kosong */
+  0% {
+    width: 0;
+  }
+
+  /* Ketik masuk 2 detik */
+  28% {
+    width: 10ch;
+  }
+
+  /* Diam 3 detik */
+  71% {
+    width: 10ch;
+  }
+
+  /* Hapus keluar 2 detik */
+  100% {
+    width: 0;
+  }
+}
+
+/* Cursor berkedip */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
 /* footer {
     background: linear-gradient(#45458580, #adadff80, #45458580);
     backdrop-filter: blur(8px);
