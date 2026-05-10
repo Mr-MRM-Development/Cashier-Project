@@ -1,6 +1,6 @@
 import { Chasier } from "./cashier.js";
 import { items } from "./items.js";
-// import { printReceipt } from "./print.js"; 
+import { printReceipt } from "./print.js"; 
 
 class main {
     constructor() {
@@ -26,7 +26,7 @@ cashier.addItem({
 
 cashier.calculate({ nominal: 600000 });
 console.log("Cashier Data: " + JSON.stringify(cashier.data, null, 2))
-
+printReceipt(cashier.getData());
 
 async function render() {
     const displayConteiner = document.getElementById("menu");
