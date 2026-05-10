@@ -55,4 +55,20 @@ class Chasier {
 
 }
 
+function bukaPembayaran(){
+
+    document
+        .getElementById("paymentPopup")
+        .classList.remove("hidden");
+}
+
+function prosesPembayaran(){
+
+    alert("Pembayaran berhasil!");
+
+    document
+        .getElementById("paymentPopup")
+        .classList.add("hidden");
+}
+
 export { Chasier };

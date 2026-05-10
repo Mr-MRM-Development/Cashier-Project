@@ -47,26 +47,125 @@
     <br>
 
     <!-- Tombol -->
-    <button id="openPopup" class="open-btn" onclick="document.querySelector('.cart-popup').classList.toggle('hidden')">
-        <i class="fas fa-shopping-cart"></i>
+    <button id="openPopup" class="open-btn">
+    <i class="fas fa-shopping-cart"></i><span id="cart-count">0</span>
     </button>
     
     <!-- Popup -->
-    <div class="popup-bg" id="popupBg">
-    
-        <div class="cart-card">
-    
-            <!-- Tombol Close -->
-            <span class="close-popup" id="closePopup">&times;</span>
-    
-            <h2>Keranjang Belanja</h2>
-    
-            <p>Belum ada produk di keranjang.</p>
-            <p>Silakan tambahkan produk terlebih dahulu.</p>
-    
+    <!-- ========================= -->
+<!-- POPUP KERANJANG -->
+<!-- ========================= -->
+
+<div class="popup-bg hidden" id="popupBg">
+
+    <div class="cart-sidebar">
+
+        <!-- HEADER -->
+        <div class="cart-header">
+
+            <h2>Keranjang</h2>
+
+            <span id="closePopup">&times;</span>
+
         </div>
-    
+
+        <!-- LIST ITEM -->
+        <div id="cart-list"></div>
+
+        <!-- FOOTER -->
+        <div class="cart-footer">
+
+            <div class="cart-info">
+                <span>Total Item</span>
+                <span id="total-item">0</span>
+            </div>
+
+            <div class="cart-info">
+                <span>Total Harga</span>
+                <span id="total-price">Rp 0</span>
+            </div>
+
+            <button class="pay-btn" onclick="bukaPembayaran()">
+                Bayar (<span id="pay-total-item">0</span>)
+            </button>
+
+            <button class="clear-btn" onclick="kosongkanKeranjang()">
+                Kosongkan Keranjang
+            </button>
+
+        </div>
+
     </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- POPUP PEMBAYARAN -->
+<!-- ========================= -->
+
+<div class="payment-popup hidden" id="paymentPopup">
+
+    <div class="payment-card">
+
+        <!-- HEADER -->
+        <div class="payment-header">
+
+            <h2>Pembayaran</h2>
+
+            <span onclick="tutupPembayaran()">&times;</span>
+
+        </div>
+
+        <div class="payment-body">
+
+            <!-- RINGKASAN -->
+            <div class="payment-summary">
+
+                <h4>Ringkasan Pesanan</h4>
+
+                <div id="payment-items"></div>
+
+                <div class="payment-total">
+                    <span>Total</span>
+                    <span id="payment-total-price">
+                        Rp 0
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- METODE -->
+            <div class="payment-method">
+
+                <h4>Metode Pembayaran</h4>
+
+                <label class="method-card active">
+                    <input type="radio" name="payment" checked>
+                    Tunai (Cash)
+                </label>
+
+                <label class="method-card">
+                    <input type="radio" name="payment">
+                    Debit / Kredit
+                </label>
+
+                <label class="method-card">
+                    <input type="radio" name="payment">
+                    QRIS
+                </label>
+
+                <button class="pay-now-btn" onclick="prosesPembayaran()">
+                    Bayar Sekarang
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
     
     <!-- <footer class="text-light text-center">
@@ -78,9 +177,7 @@
         <li><a href="#" class="text-decoration-none text-light m-3">WhatsApp</a></li>
         <li><a href="#" class="text-decoration-none text-light m-3">Tik Tok</a></li>
     </ul><br> -->
-    
-    
-    
+
     <!-- Library Javascript -->
     <script src="assets/library/Bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Native Javascript Modules -->
@@ -88,34 +185,45 @@
     <script src="js/cart.js"></script>
     
     <footer>
-<div class="footer-background text-dark">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-<path fill="#e9f7ef" fill-opacity="1">
-  <animate 
-    attributeName="d" 
-    dur="10s"
-    repeatCount="indefinite"
-    values="
-      M0,224L48,197.3C96,171,192,117,288,112C384,107,480,149,576,181.3C672,213,768,235,864,224C960,213,1056,171,1152,170.7C1248,171,1344,213,1392,234.7L1440,256L1440,320L0,320Z;
-      M0,192L48,186.7C96,181,192,171,288,165.3C384,160,480,160,576,165.3C672,171,768,181,864,186.7C960,192,1056,192,1152,176C1248,160,1344,128,1392,112L1440,96L1440,320L0,320Z;
-      M0,224L48,197.3C96,171,192,117,288,112C384,107,480,149,576,181.3C672,213,768,235,864,224C960,213,1056,171,1152,170.7C1248,171,1344,213,1392,234.7L1440,256L1440,320L0,320Z
-    "
-  />
-</path>
-</svg>
+        <div class="footer-background text-dark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#e9f7ef" fill-opacity="1">
+                    <animate 
+                        attributeName="d" 
+                        dur="10s"
+                        repeatCount="indefinite"
+                        values="
+                        M0,224L48,197.3C96,171,192,117,288,112C384,107,480,149,576,181.3C672,213,768,235,864,224C960,213,1056,171,1152,170.7C1248,171,1344,213,1392,234.7L1440,256L1440,320L0,320Z;
+                        M0,192L48,186.7C96,181,192,171,288,165.3C384,160,480,160,576,165.3C672,171,768,181,864,186.7C960,192,1056,192,1152,176C1248,160,1344,128,1392,112L1440,96L1440,320L0,320Z;
+                        M0,224L48,197.3C96,171,192,117,288,112C384,107,480,149,576,181.3C672,213,768,235,864,224C960,213,1056,171,1152,170.7C1248,171,1344,213,1392,234.7L1440,256L1440,320L0,320Z
+                        "
+                    />
+                </path>
+            </svg>
+        </div>
+        <section>
+        <!-- <ul class="socials">
+            <li><a class="fa-brands fa-instagram" href="https://instagram.com/1kkyhlm_"></a></li>
+            <li><a class="fa-brands fa-whatsapp" href="https:/wa.me/+6285920064206"></a></li>
+            <li><a class="fa-brands fa-discord" href="https:/discord.com/rifqikhr"></a></li>
+            <li><a class="fa-brands fa-tiktok" href="https:/tiktok.com/@khrlhlm_"></a></li>
+        </ul> -->
+        <p class="legal m-2">&copy;2026 Kelompok I. Application Cashier.</p>
+        </section>
+    </footer>
+
+    <!-- <div class="payment-popup hidden" id="paymentPopup">
+
+    <div class="payment-box">
+
+        <h2>Pembayaran</h2>
+
+        <button onclick="prosesPembayaran()">
+            Bayar Sekarang
+        </button>
+
+    </div> -->
 
 </div>
-
-<section>
-  <!-- <ul class="socials">
-    <li><a class="fa-brands fa-instagram" href="https://instagram.com/1kkyhlm_"></a></li>
-    <li><a class="fa-brands fa-whatsapp" href="https:/wa.me/+6285920064206"></a></li>
-    <li><a class="fa-brands fa-discord" href="https:/discord.com/rifqikhr"></a></li>
-    <li><a class="fa-brands fa-tiktok" href="https:/tiktok.com/@khrlhlm_"></a></li>
-  </ul> -->
-
-  <p class="legal m-2">&copy;2026 Kelompok I. Application Cashier.</p>
-</section>
-</footer>
 </body>
 </html>

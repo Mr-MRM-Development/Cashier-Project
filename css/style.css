@@ -331,3 +331,301 @@ footer section {
 }
 
 .cart-popup.hidden {transform:scale(0);}
+
+.payment-popup{
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 999;
+}
+
+.payment-box{
+    width: 300px;
+
+    background: #4b2e1e;
+    color: white;
+
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.hidden{
+    display: none;
+}
+#openPopup{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible;
+}
+
+#cart-count{
+    position: absolute;
+
+    top: -6px;
+    right: -6px;
+
+    min-width: 22px;
+    height: 22px;
+
+    padding: 0 5px;
+
+    background: crimson;
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    z-index: 999;
+}
+
+/* ========================= */
+/* KERANJANG */
+/* ========================= */
+
+.cart-sidebar{
+    position: fixed;
+
+    top: 60px;
+    right: 0;
+
+    width: 380px;
+    height: 100vh;
+
+    background: #f8f1eb;
+
+    z-index: 9999;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    box-shadow: -5px 0 20px rgba(0,0,0,.2);
+}
+
+.cart-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.cart-header span{
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.cart-item{
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img{
+    width: 80px;
+    height: 80px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+}
+
+.cart-detail{
+    flex: 1;
+}
+
+.qty-box{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+.qty-btn{
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: white;
+
+    font-size: 20px;
+}
+
+.cart-price{
+    font-weight: bold;
+}
+
+.cart-footer{
+    margin-top: 30px;
+}
+
+.cart-info{
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+
+    font-weight: bold;
+}
+
+.pay-btn{
+    width: 100%;
+    padding: 15px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(to right, #3d2417, #6b3d21);
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.clear-btn{
+    width: 100%;
+
+    margin-top: 15px;
+
+    border: none;
+    background: transparent;
+
+    color: crimson;
+}
+
+/* ========================= */
+/* POPUP PEMBAYARAN */
+/* ========================= */
+
+.payment-popup{
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+}
+
+.payment-card{
+    width: 700px;
+
+    background: #fff8f0;
+
+    border-radius: 25px;
+
+    padding: 25px;
+}
+
+.payment-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.payment-header span{
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.payment-body{
+    display: flex;
+    gap: 30px;
+}
+
+.payment-summary{
+    flex: 1;
+
+    border-right: 1px solid #ddd;
+
+    padding-right: 20px;
+}
+
+.payment-method{
+    flex: 1;
+}
+
+.method-card{
+    display: block;
+
+    padding: 15px;
+
+    border: 2px solid #ddd;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+
+    cursor: pointer;
+}
+
+.method-card.active{
+    border-color: #5a321b;
+}
+
+.payment-total{
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.pay-now-btn{
+    width: 100%;
+
+    margin-top: 20px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: linear-gradient(to right, #3d2417, #6b3d21);
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.hidden{
+    display: none;
+}
