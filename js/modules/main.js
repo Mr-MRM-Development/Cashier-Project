@@ -10,44 +10,33 @@ class main {
 
 const cashier = new Chasier();
 
-cashier.addItem({
-    name: "Donut",
-    price: 4000,
-    total: 6
-})
-// console.log("Cashier Items Data: " + JSON.stringify(cashier.data.items, null, 2))
+/**
+ * 
+ *  @method Debugging Data Test
+ * 
+ */
 
-cashier.addItem({
-    name: "Pizza",
-    price: 8000,
-    total: 12
-})
-// console.log("Cashier Items Data: " + JSON.stringify(cashier.data.items, null, 2))
+// cashier.addItem({
+//     name: "Donut",
+//     price: 4000,
+//     total: 6
+// })
+// // console.log("Cashier Items Data: " + JSON.stringify(cashier.data.items, null, 2))
 
-cashier.calculate({ nominal: 600000 });
-console.log("Cashier Data: " + JSON.stringify(cashier.data, null, 2))
-printReceipt(cashier.getData());
+// cashier.addItem({
+//     name: "Pizza",
+//     price: 8000,
+//     total: 12
+// })
+// // console.log("Cashier Items Data: " + JSON.stringify(cashier.data.items, null, 2))
 
+// cashier.calculate({ nominal: 600000 });
+// console.log("Cashier Data: " + JSON.stringify(cashier.data, null, 2))
 
-let cart = [];
+window.printReceipt = printReceipt;
+
 
 function tambahKeranjang(nama, harga, image){
-
-    const existing = cart.find(item => item.nama === nama);
-
-    if(existing){
-
-        existing.qty++;
-
-    }else{
-
-        cart.push({
-            nama,
-            harga,
-            image,
-            qty: 1
-        });
-    }
 
     renderCart();
 }
@@ -63,10 +52,7 @@ function renderCart(){
     let totalHarga = 0;
     let totalItem = 0;
 
-    cart.forEach((item, index) => {
-
-        totalHarga += item.harga * item.qty;
-        totalItem += item.qty;
+    cashier.getItems.forEach((item, index) => {
 
         cartList.innerHTML += `
         
@@ -116,35 +102,19 @@ function renderCart(){
         "Rp " + totalHarga.toLocaleString();
 }
 
-window.tambahItem = function(index){
-
-    cart[index].qty++;
-
+window.tambahItem = (index) => {
     renderCart();
 }
 
-window.kurangItem = function(index){
-
-    if(cart[index].qty > 1){
-
-        cart[index].qty--;
-
-    }else{
-
-        cart.splice(index, 1);
-    }
-
+window.kurangItem = (index) => {
     renderCart();
 }
 
-window.kosongkanKeranjang = function(){
-
-    cart = [];
-
-    renderCart();
+window.kosongkanKeranjang = () => {
+    
 }
 
-window.bukaPembayaran = function(){
+window.bukaPembayaran = () => {
 
     const popup = document.getElementById("paymentPopup");
 
@@ -155,19 +125,15 @@ window.bukaPembayaran = function(){
 
     paymentItems.innerHTML = "";
 
-    let total = 0;
-
     cart.forEach(item => {
-
-        total += item.harga * item.qty;
 
         paymentItems.innerHTML += `
             <div class="d-flex justify-content-between mb-3">
 
-                <span>${item.nama} x ${item.qty}</span>
+                <span>${"p"} x ${"p"}</span>
 
                 <span>
-                    Rp ${(item.harga * item.qty).toLocaleString()}
+                    Rp ${("p").toLocaleString()}
                 </span>
 
             </div>
@@ -188,11 +154,11 @@ window.prosesPembayaran = function(){
 
     alert("Pembayaran berhasil!");
 
-    cart = [];
-
+    printReceipt(cashier.getData())
+    
     renderCart();
-
     tutupPembayaran();
+
 }
 
 

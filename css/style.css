@@ -259,7 +259,19 @@ footer section {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 99999;
+    transition: 0.3s;
+}
 
+.open-btn:hover {
+    transform: scale(1.2);
+    filter: brightness(1.3);
+}
+
+.open-btn:active {
+    transition: 0.1s;
+    transform: scale(0.8);
+    filter: brightness(0.6);
 }
 
 /* Background Popup */
@@ -267,23 +279,32 @@ footer section {
     position: fixed;
 
     top: 0;
-    left: 0;
+    right: 0;
 
     width: 100%;
     height: 100vh;
 
-    background: rgba(0,0,0,0.4);
+    background: transparent;
 
-    display: none;
-
+    transition: 0.3s;
+    
     justify-content: center;
     align-items: center;
-
+    
     z-index: 999;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-bg.my-hidden {
+    right: -100%;
 }
 
 /* Card Popup */
 .cart-card{
+    transition: 0.3s;
     width: 350px;
     min-height: 200px;
 
@@ -302,6 +323,10 @@ footer section {
     0 0 15px rgba(0,123,255,0.4);
 
     animation: popupAnim 0.3s ease;
+}
+
+.popup-bg.my-hidden .cart-card {
+    transform: scale(0);
 }
 
 /* Tombol Close */
@@ -343,6 +368,7 @@ footer section {
     justify-content: center;
 
     z-index: 999;
+    transition: 0.3s;
 }
 
 .payment-box{
@@ -355,8 +381,9 @@ footer section {
     border-radius: 20px;
 }
 
-.hidden{
-    display: none;
+.my-hidden{
+    /* display: none; */
+    transform: scale(0);
 }
 #openPopup{
     position: fixed;
@@ -408,22 +435,32 @@ footer section {
 .cart-sidebar{
     position: fixed;
 
-    top: 60px;
+    top: 0;
     right: 0;
 
     width: 380px;
-    height: 100vh;
+    height: 100%;
 
-    background: #f8f1eb;
+    background: #cacaff80;
+    border: solid 1px #adadff;
+    backdrop-filter: blur(4px) url("#liquid");
+    /* backdrop-filter: blur(1px) ; */
 
     z-index: 9999;
 
     padding: 20px;
+    border-radius: 25px;
 
     overflow-y: auto;
 
     box-shadow: -5px 0 20px rgba(0,0,0,.2);
+    transition: 0.3s;
+    z-index: 9999;
 }
+
+/* .cart-sidebar * {
+    color: #000;
+} */
 
 .cart-header{
     display: flex;
@@ -487,6 +524,11 @@ footer section {
 
 .cart-footer{
     margin-top: 30px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .cart-info{
@@ -494,6 +536,7 @@ footer section {
     justify-content: space-between;
 
     margin-bottom: 15px;
+    width: 100%;
 
     font-weight: bold;
 }
@@ -514,14 +557,15 @@ footer section {
 }
 
 .clear-btn{
-    width: 100%;
+    width: auto;
+    padding: 12px;
+    border-radius: 12px;
 
     margin-top: 15px;
 
     border: none;
-    background: transparent;
-
-    color: crimson;
+    background: linear-gradient(45deg, #4545ff, #8585ff, #4545ff);
+    color: #fff;
 }
 
 /* ========================= */

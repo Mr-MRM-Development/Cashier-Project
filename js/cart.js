@@ -8,19 +8,19 @@ const closePopup = document.getElementById("closePopup");
 
 /* buka popup */
 openPopup.onclick = function () {
-    popupBg.style.display = "flex";
+    popupBg.classList.toggle("my-hidden");
 };
 
 /* tutup popup */
 closePopup.onclick = function () {
-    popupBg.style.display = "none";
+    popupBg.classList.add("my-hidden");
 };
 
 /* klik luar card */
 window.onclick = function (e) {
 
     if (e.target == popupBg) {
-        popupBg.style.display = "none";
+        popupBg.classList.add("my-hidden");
     }
 
 };

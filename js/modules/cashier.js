@@ -53,22 +53,15 @@ class Chasier {
         return this.data;
     }
 
-}
-
-function bukaPembayaran(){
-
-    document
-        .getElementById("paymentPopup")
-        .classList.remove("hidden");
-}
-
-function prosesPembayaran(){
-
-    alert("Pembayaran berhasil!");
-
-    document
-        .getElementById("paymentPopup")
-        .classList.add("hidden");
+    clearData() {
+        this.data = {
+            price: 0,
+            nominal: 0,
+            items: [],
+            exchange: 0,
+            totalItems: 0
+        };
+    }
 }
 
 export { Chasier };

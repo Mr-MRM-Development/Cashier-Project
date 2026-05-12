@@ -1,23 +1,31 @@
+/**
+ * -------------------------------------------------------------
+ * 
+ *               (C) 2026 Team 1 Cashier Application
+ *                       By: M. Rakka Falleh
+ * 
+ * -------------------------------------------------------------
+ */
+
 function formatRupiah(number) {
     return "Rp " + Number(number).toLocaleString("id-ID");
 }
 
 function printReceipt(data) {
+    const receiptContainer  = document.createElement("div");
+    receiptContainer.id     = "receipt";
+    
+    receiptContainer.style.transform = "translate(-50%, -50%)";
+    receiptContainer.style.position  = "fixed";
+    receiptContainer.style.left      = "50%";
+    receiptContainer.style.top       = "-200%";
+        
 
-    let receiptContainer = document.getElementById("receipt");
-
-    if (!receiptContainer) {
-
-        receiptContainer = document.createElement("div");
-        receiptContainer.id = "receipt";
-
-        document.body.appendChild(receiptContainer);
-
-    }
+    // document.body.appendChild(pages);
 
     let itemsHTML = "";
 
-    data.items.forEach((item) => {
+    data.items.map((item) => {
 
         itemsHTML += `
             <div class="receipt-item">
@@ -38,9 +46,11 @@ function printReceipt(data) {
 
             </div>
         `;
-    });
+    }).join();
 
-    receiptContainer.innerHTML = `
+    const mainCode = `
+    <html>
+    <head>
         <style>
 
             .receipt-paper {
@@ -49,6 +59,10 @@ function printReceipt(data) {
                 padding: 4mm;
                 font-family: monospace;
                 color: black;
+                position: fixed;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                left: 50%;
             }
 
             .receipt-title {
@@ -120,7 +134,8 @@ function printReceipt(data) {
             }
 
         </style>
-
+    </head>
+    <body>
         <div class="receipt-paper">
 
             <div class="receipt-title">
@@ -168,9 +183,22 @@ function printReceipt(data) {
             </div>
 
         </div>
+        <script>
+            
+        </script>
+    </body>
+    </html>
+
     `;
 
-    window.print();
+    receiptContainer.innerHTML = mainCode;
+
+    const printPage = window.open("", "_blank");
+    printPage.document.write(mainCode);
+    printPage.document.close();
+    printPage.onload = () => {
+        printPage.print();
+    };
 }
 
 export { printReceipt };
