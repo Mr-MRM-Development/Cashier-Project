@@ -25,6 +25,15 @@ body{
     background-repeat: no-repeat;
     color: var(--text-color);
 }
+
+body::-webkit-scrollbar {
+    display: none;
+}
+/* 
+nav {
+    text-decoration: wavy;
+} */
+
 .input-group{
     display: flex;
 }
@@ -40,18 +49,20 @@ body{
 .card{
     opacity: 0;
     animation: fadeIn 1s ease forwards;
-    /* background: linear-gradient(45deg, #45458580, #adadff80, #45458580); */
-    background: #3b2a1f;
-    backdrop-filter: blur(8px);
+    background: linear-gradient(45deg, #45458580, #adadff80, #45458580);
+    /* background: #3b2a1f; */
+    backdrop-filter: blur(2px) url("#liquid");
     border-radius: 25px;
     overflow: hidden;
 
     /* Animasi hover */
-    transition: transform 2s ease, box-shadow 2s ease;
+    transition: 0.2s;
 }
 
 .card:hover{
-    transform: translateY(-15px) !important;
+    /* transition: 0.3s; */
+    translate: 0 -25px;
+    scale: 1.05;
     box-shadow: 0 25px 40px rgba(0, 0, 0, 0.35);
 }
 
@@ -147,7 +158,7 @@ footer {
   color: dark;
   text-align: center;
   padding-top: 80px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .footer-background {
@@ -439,6 +450,7 @@ footer section {
     right: 0;
 
     width: 380px;
+    max-width: 100vw;
     height: 100%;
 
     background: #cacaff80;
@@ -458,9 +470,9 @@ footer section {
     z-index: 9999;
 }
 
-/* .cart-sidebar * {
-    color: #000;
-} */
+.cart-sidebar::-webkit-scrollbar {
+    display: none;
+}
 
 .cart-header{
     display: flex;
@@ -543,12 +555,12 @@ footer section {
 
 .pay-btn{
     width: 100%;
-    padding: 15px;
+    padding: 12px;
 
     border: none;
     border-radius: 12px;
 
-    background: linear-gradient(to right, #3d2417, #6b3d21);
+    background: linear-gradient(45deg, #4545ff, #8585ff, #4545ff);
 
     color: white;
 
@@ -557,7 +569,7 @@ footer section {
 }
 
 .clear-btn{
-    width: auto;
+    width: 100%;
     padding: 12px;
     border-radius: 12px;
 
@@ -576,7 +588,7 @@ footer section {
     position: fixed;
     inset: 0;
 
-    background: rgba(0,0,0,.4);
+    background: rgba(0,0,0,0.4);
 
     display: flex;
     justify-content: center;
@@ -588,7 +600,9 @@ footer section {
 .payment-card{
     width: 700px;
 
-    background: #fff8f0;
+    background: #cacaff80;
+    border: solid 1px #adadff;
+    backdrop-filter: blur(4px) url("#liquid");
 
     border-radius: 25px;
 

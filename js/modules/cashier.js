@@ -43,6 +43,14 @@ class Chasier {
             price: price,
             totalPrice: (total * price)
         })
+
+        this.data.price      = 0;
+        this.data.totalItems = 0;
+
+        this.data.items.forEach((item, index) => {
+            this.data.price      += item.totalPrice;
+            this.data.totalItems += item.total;
+        })
     }
 
     getItems() {

@@ -36,12 +36,21 @@ const cashier = new Chasier();
 window.printReceipt = printReceipt;
 
 
-function tambahKeranjang(nama, harga, image){
-
+async function addToCart(result){
+    const { name, price, id } = result;
+    const total = await document.getElementById(id).value;
+    cashier.addItem({
+        name: name,
+        price: price,
+        total: Number(total)
+    });
+    // cashier.calculate({nominal: 500000});
     renderCart();
+
+    console.log(JSON.stringify(cashier.data, null, 2))
 }
 
-window.tambahKeranjang = tambahKeranjang;
+window.addToCart = addToCart;
 
 function renderCart(){
 
@@ -49,22 +58,19 @@ function renderCart(){
 
     cartList.innerHTML = "";
 
-    let totalHarga = 0;
-    let totalItem = 0;
-
-    cashier.getItems.forEach((item, index) => {
+    cashier.data.items.forEach((item, index) => {
 
         cartList.innerHTML += `
         
         <div class="cart-item">
 
-            <img src="${item.image}">
+            <!--img src="${item.image}"-->
 
             <div class="cart-detail">
 
-                <h5>${item.nama}</h5>
+                <h5>${item.name}</h5>
 
-                <p>${item.harga}</p>
+                <p>${(item.price).toLocaleString("id-ID")}</p>
 
                 <div class="qty-box">
 
@@ -73,7 +79,7 @@ function renderCart(){
                         -
                     </button>
 
-                    <span>${item.qty}</span>
+                    <span>${item.total}</span>
 
                     <button class="qty-btn"
                         onclick="tambahItem(${index})">
@@ -85,21 +91,21 @@ function renderCart(){
             </div>
 
             <div class="cart-price">
-                Rp ${(item.harga * item.qty).toLocaleString()}
+                Rp ${(item.totalPrice).toLocaleString("id-ID")}
             </div>
 
         </div>
         `;
     });
 
-    document.getElementById("cart-count").innerText = totalItem;
+    document.getElementById("cart-count").innerText = cashier.data.totalItems;
 
-    document.getElementById("total-item").innerText = totalItem;
+    document.getElementById("total-item").innerText = cashier.data.totalItems;
 
-    document.getElementById("pay-total-item").innerText = totalItem;
+    document.getElementById("pay-total-item").innerText = cashier.data.totalItems;
 
     document.getElementById("total-price").innerText =
-        "Rp " + totalHarga.toLocaleString();
+        "Rp" + (cashier.data.price).toLocaleString("id-ID") + ",00";
 }
 
 window.tambahItem = (index) => {
@@ -169,11 +175,11 @@ async function render() {
         const element = `
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card w-100 my-3" style="width: 18rem;" id="card">
-                    <img src="${item.image}" alt="..." class="card-img-top rounded-top">
+                    <img src="${item.image}" class="card-img-top rounded-top" style="width: 100%; height: 300px; object-fit: cover;">
                     <div class="card-body shadow">
                         <h5 class="card-title">${item.name}</h5>
                         <p class="card-text">${item.desc}</p>
-                        <p class="card-text">${item.price}</p>
+                        <p class="card-text">Rp${(item.price).toLocaleString("id-ID")},00</p>
                         <div class="input-group" style="width: 100%;">
                                 <button class="btn btn-danger fas fa-minus" type="button" id="btnMinus" onclick="
                                     if (Number(document.getElementById('totalInput${ index }').value) > 1) {
@@ -188,7 +194,7 @@ async function render() {
                         <button 
                             class="btn btn-primary mt-3" 
                             style="width: 100%;"
-                            onclick="tambahKeranjang('${item.name}',${item.price},'${item.image}')">
+                            onclick="addToCart({name: '${item.name}', price: ${item.price}, id: 'totalInput${ index }'})">
                             Masukan Keranjang 
                             <i class="fas fa-shopping-cart"></i>
                         </button>

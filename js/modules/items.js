@@ -27,7 +27,7 @@ const items = [
         name: "Nasi Goreng",
         price: 12000,
         desc: "⭐ 4.5 (15+)",
-        image: "assets/images/donut.jpg"
+        image: "assets/images/rtx5060.jpg"
     },
     {
         name: "Mie Ayam",
@@ -53,12 +53,6 @@ const items = [
         desc: "⭐ 4.1 (5+)",
         image: "assets/images/butterschoth.jpg"
     }
-    // {
-    //     name: "Hmmm",
-    //     price: 5000,
-    //     desc: "",
-    //     image: "assets/images/soft.jpg"
-    // }
 ]
 
 export { items }

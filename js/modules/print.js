@@ -53,16 +53,22 @@ function printReceipt(data) {
     <head>
         <style>
 
+            body {
+                width: 100vw;
+                height: 100vh;
+                margin: 0;
+            }
+
             .receipt-paper {
                 width: 58mm;
                 background: white;
                 padding: 4mm;
                 font-family: monospace;
                 color: black;
-                position: fixed;
+                /* position: fixed;
                 transform: translate(-50%, -50%);
                 top: 50%;
-                left: 50%;
+                left: 50%; */
             }
 
             .receipt-title {
