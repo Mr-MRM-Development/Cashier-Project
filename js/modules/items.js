@@ -1,57 +1,89 @@
 const items = [
+
+// baris 1 | Makanan 1
+
     {
-        name: "Donut J.CO",
-        price: 15000,
-        desc: "⭐ 4.9 (40+)",
-        image: "assets/images/donut.jpg"
+        name: "Kentang Goreng",
+        price: 12000,
+        desc: "⭐ 3.8 (50+)",
+        image: "assets/images/kentang.jpg"
     },
+
     {
         name: "Risoles Mayonaise",
-        price: 2000,
-        desc: "⭐ 4.8 (30+)",
+        price: 3500,
+        desc: "⭐ 3.1 (30+)",
         image: "assets/images/risolmayo.jpg"
     },
+
     {
         name: "Wonton",
-        price: 5000,
-        desc: "⭐ 4.7 (25+)",
+        price: 13000,
+        desc: "⭐ 3.0 (25+)",
         image: "assets/images/wonton.jpg",
     },
+    
     {
         name: "Ceker Mercon",
-        price: 6000,
-        desc: "⭐ 4.6 (20+)",
+        price: 11000,
+        desc: "⭐ 4.6 (10+)",
         image: "assets/images/cekermercon.jpg"
     },
+
+// baris 2 | Makanan 2
+
     {
         name: "Nasi Goreng",
-        price: 12000,
-        desc: "⭐ 4.5 (15+)",
-        image: "assets/images/rtx5060.jpg"
+        price: 14000,
+        desc: "⭐ 4.5 (45+)",
+        image: "assets/images/nasgor.jpg"
     },
     {
         name: "Mie Ayam",
-        price: 10000,
-        desc: "⭐ 4.4 (10+)",
+        price: 12000,
+        desc: "⭐ 4.4 (50+)",
         image: "assets/images/mieayam.jpg"
     },
+
     {
-        name: "Es Cokelat",
-        price: 8000,
-        desc: "⭐ 4.3 (5+)",
+        name: "Bakso Sapi",
+        price: 12000,
+        desc: "⭐ 4.3 (35+)",
+        image: "assets/images/bakso.jpg"
+    },
+
+    {
+        name: "Seblak",
+        price: 14000,
+        desc: "⭐ 4.2 (30+)",
+        image: "assets/images/seblak.jpg"
+    },
+
+// baris 3 | Minuman
+
+    {
+        name: "Matcha Latte",
+        price: 16000,
+        desc: "⭐ 3 (1)",
+        image: "assets/images/matcha.jpg"
+    },
+    {
+        name: "Coffee Latte",
+        price: 16000,
+        desc: "⭐ 3.8 (40+)",
+        image: "assets/images/coffelatte.jpg"
+    },
+    {
+        name: "Chocolate",
+        price: 16000,
+        desc: "⭐ 3.8 (40+)",
         image: "assets/images/coklat.jpg"
     },
     {
-        name: "Es Doger",
-        price: 8000,
-        desc: "⭐ 4.2 (5+)",
-        image: "assets/images/esdoger2.jpg"
-    },
-    {
-        name: "Butterschoth Coffee",
-        price: 12000,
-        desc: "⭐ 4.1 (5+)",
-        image: "assets/images/butterschoth.jpg"
+        name: "Americano",
+        price: 10000,
+        desc: "⭐ 3.1 (40+)",
+        image: "assets/images/americano.jpg"
     }
 ]
 
