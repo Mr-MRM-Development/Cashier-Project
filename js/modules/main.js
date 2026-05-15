@@ -106,18 +106,32 @@ function renderCart(){
 
     document.getElementById("total-price").innerText =
         "Rp" + (cashier.data.price).toLocaleString("id-ID") + ",00";
+    
+    document.getElementById("payment-total-price").innerText =
+        "Rp" + (cashier.data.price).toLocaleString("id-ID") + ",00";
 }
 
 window.tambahItem = (index) => {
+    cashier.setItem({
+        index: index,
+        total: 1,
+        method: "add"
+    });
     renderCart();
 }
 
 window.kurangItem = (index) => {
+    cashier.setItem({
+        index: index,
+        total: 1,
+        method: "less"
+    });
     renderCart();
 }
 
 window.kosongkanKeranjang = () => {
-    
+    cashier.clearData();
+    renderCart()
 }
 
 window.bukaPembayaran = () => {
@@ -159,14 +173,24 @@ window.tutupPembayaran = function(){
 window.prosesPembayaran = function(){
 
     alert("Pembayaran berhasil!");
-
-    printReceipt(cashier.getData())
-    
+    cashier.clearData();
     renderCart();
     tutupPembayaran();
 
+    setTimeout(() => {
+        if (confirm("Cetak Struk?")) {
+            printReceipt(cashier.getData())
+        }
+    }, 1000)
 }
 
+document.getElementById("cash-input").addEventListener("input", () => {
+    cashier.calculate({
+        nominal: (Number(document.getElementById("cash-input").value))
+    });
+    document.getElementById("cash-change")
+        .textContent = "Rp" + (cashier.data.exchange).toLocaleString("id-ID") + ",00";
+})
 
 async function render() {
     const displayConteiner = document.getElementById("menu");

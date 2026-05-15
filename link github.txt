@@ -1,1 +1,3 @@
-https://github.com/Vienna460/Cashier-Project.git
+https://github.com/Vienna460/Cashier-Project.git //Link Tua
+
+https://github.com/Mr-MRM-Development/Cashier-Project // Link Baru

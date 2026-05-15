@@ -5,7 +5,6 @@
     --text-color: #333;
     --button-primary: #4CAF50;
     --button-secondary: #f44336;
-
     --bg-dark-1: #050525;
 }
 
@@ -138,35 +137,21 @@ nav {
     border-color: transparent;
   }
 }
-/* footer {
-    background: linear-gradient(#45458580, #adadff80, #45458580);
-    backdrop-filter: blur(8px);
-    border: solid 1px #adadff;
-    border-bottom: none;
-    padding: 12px;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
-    position: fixed;
-    bottom: 0;
-    left: 12px;
-    right: 12px;
-} */
 
 footer {
   position: relative;
   width: 100%;
   color: dark;
   text-align: center;
-  padding-top: 80px;
   /* overflow: hidden; */
+  height: 220px;
 }
 
 .footer-background {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 220px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
   z-index: 0;
 }
 
@@ -174,6 +159,11 @@ footer {
   width: 100%;
   height: 100%;
   display: block;
+  /* bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed; */
+
 }
 
 footer section {
@@ -183,6 +173,8 @@ footer section {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  z-index: 99;
+  position: absolute;
 }
 
 .legal {
@@ -190,68 +182,6 @@ footer section {
   opacity: 0.8;
 }
 
-
-/* .cart-card{
-    width: 350px;
-    min-height: 200px;
-
-    background: rgba(255,255,255,0.95);
-
-    border-radius: 20px;
-
-    padding: 25px;
-
-    position: fixed;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    backdrop-filter: blur(10px);
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,0.3),
-    0 0 15px rgba(0,123,255,0.4);
-
-    animation: floatingCard 3s ease-in-out infinite;
-
-    z-index: 999;
-}
-
-
-.close-popup{
-    position: absolute;
-
-    top: 10px;
-    right: 15px;
-
-    font-size: 28px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    color: #444;
-}
-
-.close-popup:hover{
-    color: red;
-}
-
-
-@keyframes floatingCard{
-    0%{
-        transform: translate(-50%, -50%) translateY(0px);
-    }
-
-    50%{
-        transform: translate(-50%, -50%) translateY(-10px);
-    }
-
-    100%{
-        transform: translate(-50%, -50%) translateY(0px);
-    }
-} */
  /* Tombol */
 .open-btn{
     padding: 12px 20px;
@@ -628,9 +558,7 @@ footer section {
 
 .payment-summary{
     flex: 1;
-
     border-right: 1px solid #ddd;
-
     padding-right: 20px;
 }
 
@@ -640,15 +568,10 @@ footer section {
 
 .method-card{
     display: block;
-
     padding: 15px;
-
     border: 2px solid #ddd;
-
     border-radius: 15px;
-
     margin-bottom: 15px;
-
     cursor: pointer;
 }
 
@@ -685,4 +608,233 @@ footer section {
 
 .hidden{
     display: none;
+}
+
+/* ========================================= */
+/* RESPONSIVE TABLET */
+/* ========================================= */
+@media screen and (max-width: 992px) {
+
+    .typing-title{
+        font-size: 50px;
+    }
+
+    /* Card menu */
+    #menu .col-lg-3{
+        width: 50%;
+    }
+
+    .card{
+        margin-bottom: 20px;
+    }
+
+    /* Popup pembayaran */
+    .payment-card{
+        width: 90%;
+    }
+
+    .payment-body{
+        flex-direction: column;
+    }
+
+    .payment-summary{
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    footer{
+        height: 180px;
+    }
+}
+
+
+/* ========================================= */
+/* RESPONSIVE HANDPHONE */
+/* ========================================= */
+@media screen and (max-width: 768px) {
+
+    body{
+        background-position: center;
+    }
+
+    .typing-title{
+        font-size: 35px;
+    }
+
+    /* Semua card jadi 1 kolom */
+    #menu .col-lg-3,
+    #menu .col-md-6,
+    #menu .col-sm-12{
+        width: 100%;
+    }
+
+    .card{
+        margin-bottom: 20px;
+        border-radius: 20px;
+    }
+
+    .card:hover{
+        translate: 0 -10px;
+        scale: 1.02;
+    }
+
+    /* Navbar */
+    .navbar-brand{
+        font-size: 22px !important;
+    }
+
+    /* Tombol cart */
+    .open-btn{
+        width: 55px;
+        height: 55px;
+        font-size: 18px;
+        bottom: 20px;
+        right: 15px;
+    }
+
+    /* Sidebar keranjang */
+    .cart-sidebar{
+        width: 100%;
+        border-radius: 0;
+        padding: 15px;
+    }
+
+    .cart-item{
+        align-items: center;
+    }
+
+    .cart-item img{
+        width: 70px;
+        height: 70px;
+    }
+
+    .qty-btn{
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    /* Popup pembayaran */
+    .payment-popup{
+        padding: 10px;
+    }
+
+    .payment-card{
+        width: 100%;
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .payment-header h2{
+        font-size: 22px;
+    }
+
+    .payment-total{
+        font-size: 18px;
+    }
+
+    .pay-now-btn,
+    .pay-btn,
+    .clear-btn{
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    footer{
+        height: 150px;
+    }
+
+    .legal{
+        font-size: 12px;
+    }
+}
+
+
+/* ========================================= */
+/* EXTRA SMALL DEVICE */
+/* ========================================= */
+@media screen and (max-width: 480px){
+
+    .typing-title{
+        font-size: 28px;
+    }
+
+    .card-body h5{
+        font-size: 18px;
+    }
+
+    .card-body p{
+        font-size: 14px;
+    }
+
+    .btn{
+        font-size: 14px;
+    }
+
+    .cart-header h2,
+    .payment-header h2{
+        font-size: 20px;
+    }
+
+    .method-card{
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+/* ========================= */
+/* CASH INPUT */
+/* ========================= */
+
+.cash-area{
+    margin-top: 20px;
+}
+
+.cash-area label{
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.cash-area input{
+    width: 100%;
+    padding: 14px;
+
+    border: 2px solid #ddd;
+    border-radius: 15px;
+
+    outline: none;
+
+    font-size: 16px;
+
+    background: rgba(255,255,255,0.8);
+}
+
+.cash-area input:focus{
+    border-color: #6b3d21;
+}
+
+.cash-info{
+    margin-top: 15px;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* MOBILE */
+@media screen and (max-width:768px){
+
+    .cash-area input{
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .cash-info{
+        font-size: 16px;
+    }
 }

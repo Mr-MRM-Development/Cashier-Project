@@ -34,3 +34,12 @@ function updateCart(nama, harga){
 
     console.log(nama + " masuk keranjang");
 }
+
+function changeMethod(option) {
+    try {
+        document.querySelector(".method-card.active").classList.remove("active")
+    } catch (error) {
+        
+    }
+    document.querySelector(`.method-card#method-${option}`).classList.add("active")
+}

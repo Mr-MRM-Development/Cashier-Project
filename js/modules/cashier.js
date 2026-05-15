@@ -53,6 +53,19 @@ class Chasier {
         })
     }
 
+    setItem(result) {
+        const { index, total, method } = result;
+        if (method === "add") {
+            this.data.items[index].total += total;
+        } else {
+            this.data.items[index].total -= total;
+            if (this.data.items[index].total <= 0) {
+                this.data.items.splice(index, 1)
+            }
+        }
+        return this.data.items[index].total;
+    }
+
     getItems() {
         return this.data.items;
     }

@@ -38,7 +38,7 @@
     <br>
     
     <div class="container">
-        <div class="row mt-3" id="menu">
+        <div class="row mt-3 mb-5" id="menu">
             <!-- <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card w-100 " style="width: 18rem;">
                     <img src="assets/images/donut.jpg" class="card-img-top rounded-top" alt="...">
@@ -55,11 +55,11 @@
 
     <!-- Tombol -->
     <button id="openPopup" class="open-btn">
-    <i class="fas fa-shopping-cart"></i><span id="cart-count">0</span>
+        <i class="fas fa-shopping-cart"></i><span id="cart-count">0</span>
     </button>
-    
+
     <!-- Popup -->
-    <!-- ========================= -->
+<!-- ========================= -->
 <!-- POPUP KERANJANG -->
 <!-- ========================= -->
 
@@ -147,20 +147,39 @@
 
                 <h4>Metode Pembayaran</h4>
 
-                <label class="method-card active">
-                    <input type="radio" name="payment" checked>
+                <label class="method-card active" id="method-cash">
+                    <input type="radio" name="payment" checked onclick="changeMethod('cash')">
                     Tunai (Cash)
                 </label>
 
-                <label class="method-card">
-                    <input type="radio" name="payment">
+                <label class="method-card" id="method-kredit">
+                    <input type="radio" name="payment" onclick="changeMethod('kredit')">
                     Debit / Kredit
                 </label>
 
-                <label class="method-card">
-                    <input type="radio" name="payment">
+                <label class="method-card" id="method-qris">
+                    <input type="radio" name="payment" onclick="changeMethod('qris')">
                     QRIS
                 </label>
+
+                <!-- INPUT CASH -->
+                <div class="cash-area" id="cash-area">
+
+                    <label>Nominal Uang</label>
+
+                    <input 
+                        type="number" 
+                        id="cash-input"
+                        placeholder="Masukkan uang pembayaran."
+                        oninput="hitungKembalian()"
+                        min="0">
+
+                    <div class="cash-info">
+                        <span>Kembalian</span>
+                        <span id="cash-change">Rp 0</span>
+                    </div>
+
+                </div>
 
                 <button class="pay-now-btn" onclick="prosesPembayaran()">
                     Bayar Sekarang
@@ -174,16 +193,6 @@
 
 </div>
 
-    
-    <!-- <footer class="text-light text-center">
-        <h4>&copy; 2026 Kelompok 1 | Aplicasion Chasier</h4>
-    </footer> -->
-    <!-- <ul style="list-style-type: none; display: flex; justify-content: center;" class="list">
-        <li><a href="#" class="text-decoration-none text-light m-3">Facebook</a></li>
-        <li><a href="#" class="text-decoration-none text-light m-3">Instagram</a></li>
-        <li><a href="#" class="text-decoration-none text-light m-3">WhatsApp</a></li>
-        <li><a href="#" class="text-decoration-none text-light m-3">Tik Tok</a></li>
-    </ul><br> -->
 
     <!-- Library Javascript -->
     <script src="assets/library/Bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -209,27 +218,9 @@
             </svg>
         </div>
         <section>
-        <!-- <ul class="socials">
-            <li><a class="fa-brands fa-instagram" href="https://instagram.com/1kkyhlm_"></a></li>
-            <li><a class="fa-brands fa-whatsapp" href="https:/wa.me/+6285920064206"></a></li>
-            <li><a class="fa-brands fa-discord" href="https:/discord.com/rifqikhr"></a></li>
-            <li><a class="fa-brands fa-tiktok" href="https:/tiktok.com/@khrlhlm_"></a></li>
-        </ul> -->
         <p class="legal m-2">&copy;2026 Kelompok I. Application Cashier.</p>
         </section>
     </footer>
-
-    <!-- <div class="payment-popup hidden" id="paymentPopup">
-
-    <div class="payment-box">
-
-        <h2>Pembayaran</h2>
-
-        <button onclick="prosesPembayaran()">
-            Bayar Sekarang
-        </button>
-
-    </div> -->
 
 </div>
 </body>
